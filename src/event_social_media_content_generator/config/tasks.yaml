@@ -1,0 +1,79 @@
+---
+research_event_information:
+  description: |-
+    Conduct comprehensive research on {event_name} to gather all relevant information including:
+    - Event details (dates, location, theme, agenda)
+    - Speaker profiles and backgrounds
+    - Key topics and sessions
+    - Industry context and relevance
+    - Recent news or developments related to the event
+    - Target audience and stakeholders
+    Use multiple sources and compile a detailed research report that will inform content creation.
+  expected_output: A comprehensive research report in markdown format containing event
+    details, speaker information, key topics, industry context, and relevant background
+    information that can be used for creating targeted social media content
+  agent: event_research_specialist
+create_linkedin_content:
+  description: "Based on the research findings, create LinkedIn posts for {event_name}
+    with the EXACT tone specified: {content_tone}. \n\n**CRITICAL: Match the tone
+    precisely:**\n- Professional: Corporate, authoritative, industry-focused\n- Casual:
+    Friendly, conversational, approachable  \n- Funny: Humorous, witty, entertaining\n-
+    Degen: Crypto slang, casual Web3 language, community memes\n- Inspirational: Motivational,
+    aspirational, uplifting\n\nGenerate:\n- 3 different LinkedIn post variations\n-
+    Each post should be 1300 characters or less\n- Include relevant hashtags and mentions\n-
+    Highlight key speakers, insights, or value propositions  \n- Use language that
+    matches the specified tone exactly\n- Consider different angles: educational,
+    promotional, thought leadership\n\nEnsure content aligns with LinkedIn audience
+    while strictly maintaining the requested tone."
+  expected_output: Three distinct LinkedIn post variations in markdown format, each
+    optimized for professional engagement, including hashtags, and tailored to the
+    specified tone. Each post should be clearly labeled and ready for publication.
+  agent: linkedin_content_creator
+  context:
+  - research_event_information
+create_twitter_content:
+  description: |-
+    Using the research data, create Twitter posts for {event_name} with the EXACT tone specified: {content_tone}.
+
+    **CRITICAL: Match the tone precisely:**
+    - Professional: Formal, corporate language
+    - Casual: Friendly, relaxed, conversational
+    - Funny: Memes, jokes, witty observations
+    - Degen: "gm", "wagmi", "lfg", crypto slang, casual Web3 speak
+    - Inspirational: Motivational, "we're still early", future-focused
+
+    Generate:
+    - 3 different tweet variations (each under 280 characters)
+    - 1 Twitter thread option (3-5 connected tweets)
+    - Include relevant hashtags and handles
+    - Focus on key speakers, exciting announcements, or intriguing insights
+    - Use emojis and language that match the exact tone requested
+    - Make content authentic to the specified community
+
+    Ensure all content follows Twitter best practices and character limits while perfectly matching the requested tone.
+  expected_output: Three individual tweet variations plus one Twitter thread, all
+    in markdown format with character counts specified. Content should be engaging,
+    platform-appropriate, and optimized for the specified tone and Twitter engagement.
+  agent: twitter_content_creator
+  context:
+  - research_event_information
+validate_and_optimize_content:
+  description: "Review all generated social media content for {event_name} and provide
+    comprehensive validation and optimization. Evaluate:\n\n**PRIMARY FOCUS - Tone
+    Accuracy:**\n- Does content EXACTLY match the {content_tone} requested?\n- Is
+    the vocabulary, style, and language authentic to that tone?\n- For \"degen\" tone:
+    Are crypto slang and Web3 community language used properly?\n\n**Additional Validation:**\n-
+    Content accuracy against research findings\n- Platform-specific compliance (character
+    limits, format requirements)  \n- Engagement potential and call-to-action effectiveness\n-
+    Grammar, spelling, and readability (while maintaining tone)\n- Hashtag relevance
+    and strategic placement\n- Overall brand alignment and community appropriateness\n\nProvide
+    specific recommendations for improvements and deliver final optimized versions
+    that PERFECTLY match the requested tone."
+  expected_output: A comprehensive content validation report with final optimized
+    versions of all LinkedIn and Twitter content. Include specific improvement recommendations,
+    quality scores, and ready-to-publish social media posts with any necessary refinements
+    applied.
+  agent: content_quality_validator
+  context:
+  - create_linkedin_content
+  - create_twitter_content
